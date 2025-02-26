@@ -31,9 +31,10 @@
 
       # Enable alternative shell support in nix-darwin.
       programs.fish.enable = true;
-      users.users.lorenzo = {
-          shell = pkgs.fish;
-      };
+
+      users.knownUsers = [ "lorenzo" ];
+      users.users.lorenzo.uid = 501;
+      users.users.lorenzo.shell = pkgs.fish;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
