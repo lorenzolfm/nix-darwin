@@ -16,16 +16,28 @@
       environment.systemPackages =
         [
             pkgs.atuin
+            pkgs.diesel-cli
             pkgs.direnv
+            pkgs.docker
             pkgs.google-chrome
             pkgs.neovim
             pkgs.nil
+            pkgs.protobuf
             pkgs.raycast
+            pkgs.rustup
             pkgs.starship
             pkgs.stow
+            pkgs.tailscale
             pkgs.zellij
             pkgs.zoxide
         ];
+
+    environment.variables = {
+        EDITOR = "nvim";
+        PKG_CONFIG_PATH = "${pkgs.postgresql}/lib/pkgconfig";
+        LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
+    };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
@@ -56,6 +68,9 @@
         ${pkgs.git}/bin/git config --global gpg.ssh.allowedSignersFile "/home/lorenzo/.ssh/allowed-signers"
         ${pkgs.git}/bin/git config --global commit.gpgSign true
       '';
+
+      services.openssh.enable = true;
+      services.tailscale.enable = true;
   };
   in
   {
