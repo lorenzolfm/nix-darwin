@@ -76,9 +76,7 @@
   };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Lorenzos-MacBook-Pro
-    darwinConfigurations."Lorenzos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
   };
