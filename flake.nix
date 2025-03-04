@@ -22,9 +22,11 @@
             pkgs.google-chrome
             pkgs.neovim
             pkgs.nil
+            pkgs.postman
             pkgs.protobuf
             pkgs.raycast
             pkgs.rustup
+            pkgs.slack
             pkgs.starship
             pkgs.stow
             pkgs.tailscale
